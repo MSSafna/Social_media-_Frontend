@@ -1,6 +1,6 @@
 
 import React, { useState,useEffect } from 'react';
-import axios from 'axios';
+import { axiosPrivate as axios } from '../../../API/axios';
 import { useNavigate } from 'react-router-dom';
 import { Button, CloseButton } from '@chakra-ui/react';
 import jwtDecode from 'jwt-decode';

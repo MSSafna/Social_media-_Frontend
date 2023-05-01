@@ -1,7 +1,7 @@
 import React, { useEffect, useState,useRef,createContext } from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-import axios from 'axios';
+import { axiosPrivate as axios } from '../../../API/axios';
 import { MdSend } from 'react-icons/md';
 import jwtDecode from 'jwt-decode';
 import Avatar from '../Avatar/Avatar';

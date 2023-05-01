@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Avatar from '../Avatar/Avatar';
 import { Button, CloseButton } from '@chakra-ui/react';
-import axios from 'axios';
+import { axiosPrivate as axios } from '../../../API/axios';
 import { UseruseContext } from '../../../Context/Context';
 import jwtDecode from 'jwt-decode';
 import Posts from '../Feeds/Posts';
@@ -64,7 +64,6 @@ function ProfileBanner() {
 
 
   useEffect(() => {
-    alert('called')
     const userDetails = (async () => {
       const result = await axios.get(`/api/user/getuserdetails/${userId}`)
       const updatedFollowings = [...result.data.followings, userId];
