@@ -9,7 +9,7 @@ import axios from "axios";
 
 export const axiosPrivate = axios.create({
   // baseURL: 'http://localhost:4000',
-  baseURL:'https://happyhello.online',
+  baseURL:'happyhello.online',
   headers: { 'Content-Type': 'application/json' },
   withCredentials: true,
 });
