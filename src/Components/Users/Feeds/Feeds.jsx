@@ -37,12 +37,12 @@ function Feeds() {
       const jwtToken = localStorage.getItem('jwt');
       const jwt = JSON.parse(jwtToken);
       const res = await axios.get(
-        `/api/posts/timeLine/${userId}`,
+        `/api/posts/timeline/${userId}`,
         {
           headers: {
             Authorization: `Bearer ${jwt}`,
           },
-        },
+        }
       );
         setPosts(res.data.result);
         setGetPosts(false)

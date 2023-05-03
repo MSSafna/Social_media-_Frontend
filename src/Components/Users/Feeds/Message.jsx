@@ -24,7 +24,7 @@ function Message(props) {
   const setFile = ((event) => {
 
     const files=event.target.files
-    if(files.type ==='images/jpeg'|| files.type==='images/png'){
+   
       console.log(files.type,'kfbfbsb');
       setimageFile(files)
       for (let i = 0; i < files.length; i++) {  
@@ -33,9 +33,7 @@ function Message(props) {
       }
       setImageUrls(urls);
       console.log(image,'umgesss');
-    }else{
-      alert("Invalid file format")
-    }
+    
     
 
   });
