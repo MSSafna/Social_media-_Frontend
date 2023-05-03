@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import { axiosPrivate as axios } from '../../../API/axios';
 import { UseruseContext } from '../../../Context/Context';
 import jwtDecode from 'jwt-decode';
 import Suggestions from './Suggestions';
@@ -19,11 +19,9 @@ function Right() {
     if (result.data.userNotFound) {
       setMessage(true);
       searchUser([]);
-      console.log(message, 'messsafge');
     } else {
       setMessage('');
       searchUser(result.data);
-      console.log(users, 'serach');
     }
   };
  

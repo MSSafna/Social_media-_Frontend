@@ -19,6 +19,7 @@ function Suggestions({ user, message, suggestions }) {
      setState(!state)
   
   }
+
   return (
 
     <div className='w-32'>

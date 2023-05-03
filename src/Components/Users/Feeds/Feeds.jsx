@@ -16,7 +16,6 @@ function Feeds() {
   const[getPosts,setGetPosts]=useState(false)
   const[currentUser, setCurrentUser] = useState('')
   const navigate =useNavigate()
-   let count=0
 
   const handleDataFromChild = (data) => {
      setPosts([data.data,...posts]);
@@ -24,7 +23,6 @@ function Feeds() {
 
   useEffect(()=>{
     const userDetails=(async()=>{
-      console.log(axios,'axiosss');
       const result= await axios.get(`/api/user/getuserdetails/${userId}`)
       setCurrentUser(result.data)
     })
@@ -32,7 +30,6 @@ function Feeds() {
   },[userId])
 
   useEffect(() => {
-    count++
     const fetchPost = (async () => {
       const jwtToken = localStorage.getItem('jwt');
       const jwt = JSON.parse(jwtToken);
@@ -48,7 +45,6 @@ function Feeds() {
         setGetPosts(false)
     });
     fetchPost();  
-    console.log(count,'count');
   }, [getPosts]);
 
   const handlePost=(boolean)=>{

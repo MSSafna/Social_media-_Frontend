@@ -20,7 +20,6 @@ import './imageSlider.css'
 import zIndex from '@mui/material/styles/zIndex';
 
 function Posts(props) {
-  console.log(props, 'props post')
   const {
     _id, imageName, caption, createdAt, likes,
   } = props.image;
