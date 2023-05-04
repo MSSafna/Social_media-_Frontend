@@ -7,8 +7,9 @@ import {
   Th,
   Td,
   TableContainer,
+  Button
 } from '@chakra-ui/react'
-import axios from 'axios'
+import { axiosPrivate as axios } from '../../../API/axios'
 import ViewReportModal from './ViewReportModal'
 import ViewReportPost from './ViewReportPost'
 import Pagination from './Pagination'
@@ -19,6 +20,7 @@ const [report, setReport] = useState([])
 const [currentPage, setCurrentPage] = useState(1)
 const [postPerPage, setPostPerPage] = useState(10)
 const [filteredTextValue,  setFilterTextValue] = useState('all')
+const [searchingName, setSearchingName] = useState('')
 const options=['all', 'hide', 'unhide']
 
   useEffect(() => {  
@@ -31,13 +33,18 @@ const options=['all', 'hide', 'unhide']
   const currentPost = report.slice(firstPostIndex, lastPostIndex)
 
   let filterdValue = currentPost.filter((report) =>{
+    console.log(report,' reporttt');
+    console.log(filteredTextValue,'filteredTextValue');
     if(filteredTextValue === 'unhide'){
     return  report.response.status === false
     }else if( filteredTextValue ===  'hide'){  
       return  report.response.status 
-    }else{
+    }else if(filteredTextValue === 'all'){
       return report
-    }
+    }else{
+      console.log(report.response.userId.username,'dsfdsufh');
+      return report.response.userId.username === filteredTextValue
+     }
     
   })
 
@@ -53,9 +60,19 @@ const options=['all', 'hide', 'unhide']
  const filterHandle=(filterValue) => {
   setFilterTextValue(filterValue);
  }
+ const handleSearch=() => {
+  setFilterTextValue(searchingName)
+ }
   return (
-    <>
-      <Filter filterHandle={filterHandle} options={options} />
+    <> 
+    <div className='flex flex-row'>
+
+     <Filter filterHandle={filterHandle} options={options} />
+      <input type="text" className='border border-600  rounded-md  w-52 ml-4 pl-2' placeholder='Search by post owner' onChange={(e) => {
+       setSearchingName(e.target.value)
+            }}/>
+        <Button colorScheme='blue' size='sm' className='ml-2' onClick={handleSearch}>Search</Button>
+    </div>
     <div className='pt-4'>
       <TableContainer>
   <Table variant='simple'>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { UseruseContext } from '../../../Context/Context';
 import jwtDecode from 'jwt-decode';
-import axios from 'axios';
+import { axiosPrivate as axios } from '../../../API/axios';
 import Avatar from '../Avatar/Avatar';
 
 
