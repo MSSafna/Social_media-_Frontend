@@ -55,7 +55,7 @@ const options=['all', 'hide', 'unhide']
 
  const controlPost =async(e,postId) => {
   const status = e.target.checked
-  const response = await axios.put(`/api/admin/conrtrolpost?postId=${postId}&status=${status}`) 
+  const response = await axios.put(`/api/admin/conrtrolpost?postId=${postId}&status=${status}`)
  }
  const filterHandle=(filterValue) => {
   setFilterTextValue(filterValue);
@@ -66,7 +66,6 @@ const options=['all', 'hide', 'unhide']
   return (
     <> 
     <div className='flex flex-row'>
-
      <Filter filterHandle={filterHandle} options={options} />
       <input type="text" className='border border-600  rounded-md  w-52 ml-4 pl-2' placeholder='Search by post owner' onChange={(e) => {
        setSearchingName(e.target.value)
